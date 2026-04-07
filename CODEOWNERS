@@ -1,0 +1,15 @@
+# Power-Range Elite — Code Owners
+# Every change to ANY file requires review from @MEHDIGAMER
+# This is the primary defense against supply chain attacks
+
+# All files — owner must approve
+* @MEHDIGAMER
+
+# Critical files — EXTRA vigilance required
+# These are the highest-risk targets for supply chain attacks:
+commands/power-range-escalate.md @MEHDIGAMER
+commands/power-range.md @MEHDIGAMER
+commands/power-load.md @MEHDIGAMER
+install.sh @MEHDIGAMER
+install.ps1 @MEHDIGAMER
+agents/*.md @MEHDIGAMER

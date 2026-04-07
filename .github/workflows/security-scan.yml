@@ -1,0 +1,107 @@
+name: Security Scan
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  scan-for-threats:
+    name: Scan for malicious content
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Scan install scripts for dangerous commands
+        run: |
+          echo "=== Scanning install scripts for dangerous patterns ==="
+          DANGEROUS_PATTERNS="curl |wget |eval |base64 |nc |netcat|reverse.shell|exec(|\.exec\(|subprocess|os\.system|child_process|powershell -enc|iex |Invoke-Expression|Invoke-WebRequest|Start-Process|New-Object Net|DownloadString|DownloadFile|rm -rf /|del /f|format c:|mkfs|dd if=|:\(\)\{|fork bomb"
+
+          FAILED=0
+          for file in install.sh install.ps1; do
+            if grep -inE "$DANGEROUS_PATTERNS" "$file"; then
+              echo "::error file=$file::DANGEROUS PATTERN FOUND in $file"
+              FAILED=1
+            else
+              echo "CLEAN: $file"
+            fi
+          done
+
+          if [ $FAILED -eq 1 ]; then
+            echo "::error::Install scripts contain dangerous patterns!"
+            exit 1
+          fi
+
+      - name: Scan agent files for injection attempts
+        run: |
+          echo "=== Scanning agent files for prompt injection patterns ==="
+          INJECTION_PATTERNS="curl |wget |http://|https://.*\.(exe|sh|ps1|bat|cmd)|eval\(|exec\(|subprocess|os\.system|child_process|rm -rf|del /f|format |base64 -d|echo.*\|.*bash|\.download|\.upload|exfiltrat|phone.home|beacon|reverse.shell|bind.shell|env\[|process\.env|localStorage|sessionStorage|document\.cookie|XMLHttpRequest|fetch\(|navigator\.sendBeacon"
+
+          FAILED=0
+          for file in agents/*.md commands/*.md; do
+            # Skip power-range-escalate.md — it legitimately has curl commands
+            if [ "$file" = "commands/power-range-escalate.md" ]; then
+              echo "SKIP (known curl): $file"
+              continue
+            fi
+            if grep -inE "$INJECTION_PATTERNS" "$file"; then
+              echo "::error file=$file::SUSPICIOUS PATTERN FOUND in $file"
+              FAILED=1
+            else
+              echo "CLEAN: $file"
+            fi
+          done
+
+          if [ $FAILED -eq 1 ]; then
+            echo "::error::Agent/command files contain suspicious patterns!"
+            exit 1
+          fi
+
+      - name: Scan for hardcoded secrets
+        run: |
+          echo "=== Scanning for hardcoded secrets ==="
+          SECRET_PATTERNS="sk-[a-zA-Z0-9]{20,}|pk_[a-zA-Z0-9]{20,}|ghp_[a-zA-Z0-9]{36}|gho_[a-zA-Z0-9]{36}|AIza[a-zA-Z0-9_-]{35}|[a-zA-Z0-9+/]{40,}={0,2}|-----BEGIN (RSA |EC |DSA )?PRIVATE KEY"
+
+          if grep -rnE "$SECRET_PATTERNS" --include="*.md" --include="*.sh" --include="*.ps1" --include="*.yml" --include="*.svg" .; then
+            echo "::error::Possible hardcoded secrets detected!"
+            exit 1
+          else
+            echo "CLEAN: No hardcoded secrets found"
+          fi
+
+      - name: Verify SVG has no script tags
+        run: |
+          echo "=== Scanning SVG files for embedded scripts ==="
+          if grep -inE "<script|onload|onerror|onclick|onmouseover|javascript:|foreignObject|<iframe|<embed|<object" assets/*.svg; then
+            echo "::error::SVG contains executable content!"
+            exit 1
+          else
+            echo "CLEAN: SVG files are safe"
+          fi
+
+      - name: Verify checksum integrity
+        run: |
+          echo "=== Verifying file checksums ==="
+          if sha256sum -c checksums.sha256; then
+            echo "ALL CHECKSUMS VERIFIED"
+          else
+            echo "::error::Checksum verification failed — files may be tampered!"
+            exit 1
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          echo ""
+          echo "================================="
+          echo " Security Scan Complete"
+          echo "================================="
+          echo ""
+          echo "Scanned:"
+          echo "  - Install scripts (dangerous commands)"
+          echo "  - Agent files (prompt injection)"
+          echo "  - Command files (injection)"
+          echo "  - SVG files (XSS)"
+          echo "  - All files (hardcoded secrets)"
+          echo "  - File integrity (SHA-256 checksums)"
