@@ -360,25 +360,30 @@ If Claude Code runs there, Power-Range runs there.
   <strong>$30. One-time. Lifetime access. All future updates included.</strong>
 </p>
 
-**What you get after purchase:**
+**What you get:**
 - 3 slash commands (`/power-load`, `/power-range`, `/power-range-escalate`)
 - 18 specialized AI agent definitions
 - One-line installers for Mac, Linux, and Windows
 - SHA-256 integrity verification
-- All future updates — download the latest version anytime
+- All future updates
 
-**How it works:**
-1. Purchase on Gumroad — instant download
-2. Unzip the package
-3. Run `bash install.sh` (Mac/Linux) or `.\install.ps1` (Windows)
-4. Open Claude Code in any project and type `/power-load`
-5. You're live. 18 agents at your command.
+**How to install:**
+
+1. **Download** the latest release: [**power-range-elite-v1.0.zip**](https://github.com/MEHDIGAMER/power-range-elite/releases/latest/download/power-range-elite-v1.0.zip)
+2. **Unzip** the package
+3. **Run the installer:**
+   - Mac / Linux / Git Bash: `bash install.sh`
+   - Windows PowerShell: `.\install.ps1`
+4. **Enter your license key** when prompted — you only enter this **once**, then it's yours forever
+5. **Open Claude Code** in any project and type `/power-load` to set up, then `/power-range` to run
 
 <p align="center">
-  <a href="https://daddyblaxing.gumroad.com/l/power-range-elite"><img src="https://img.shields.io/badge/Buy_Now-$30_on_Gumroad-ff90e8?style=for-the-badge&logo=gumroad&logoColor=white" alt="Buy on Gumroad"/></a>
+  <a href="https://github.com/MEHDIGAMER/power-range-elite/releases/latest/download/power-range-elite-v1.0.zip"><img src="https://img.shields.io/badge/Download-v1.0-2ecc71?style=for-the-badge" alt="Download v1.0"/></a>
 </p>
 
-> **Note:** This GitHub repo is the product page. The actual command files, agent definitions, and installers are delivered after purchase. This protects both you (verified files, no tampering) and the product (no unauthorized redistribution).
+> **License key required.** The download is free — but the installer requires a valid license key to activate. Get your key by purchasing access from [@daddyblaxing](https://github.com/MEHDIGAMER) ($30, one-time, lifetime).
+> 
+> Enter your key once during install. After that, `/power-range` works forever with no restrictions, no checks, no expiry.
 
 ---
 
