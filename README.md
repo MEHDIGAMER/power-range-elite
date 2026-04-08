@@ -33,7 +33,8 @@
   <a href="#get-power-range"><strong>Get It Now — $30</strong></a> &nbsp;&bull;&nbsp;
   <a href="#watch-it-run"><strong>Watch It Run</strong></a> &nbsp;&bull;&nbsp;
   <a href="#the-18-agents"><strong>Meet the 18 Agents</strong></a> &nbsp;&bull;&nbsp;
-  <a href="#what-happens-after-you-install"><strong>See /power-load</strong></a>
+  <a href="#what-happens-after-you-install"><strong>See /power-load</strong></a> &nbsp;&bull;&nbsp;
+  <a href="#get-power-range"><strong>Purchase Access</strong></a>
 </p>
 
 ---
@@ -355,31 +356,40 @@ If Claude Code runs there, Power-Range runs there.
 
 ## Get Power-Range
 
-**$30. One-time. Lifetime access.**
+<p align="center">
+  <strong>$30. One-time. Lifetime access. All future updates included.</strong>
+</p>
 
-Includes:
+**What you get after purchase:**
 - 3 slash commands (`/power-load`, `/power-range`, `/power-range-escalate`)
-- 18 specialized AI agents
-- Installers for Mac, Linux, and Windows
+- 18 specialized AI agent definitions
+- One-line installers for Mac, Linux, and Windows
 - SHA-256 integrity verification
-- All future updates
+- All future updates — download the latest version anytime
+
+**How it works:**
+1. Purchase on Gumroad — instant download
+2. Unzip the package
+3. Run `bash install.sh` (Mac/Linux) or `.\install.ps1` (Windows)
+4. Open Claude Code in any project and type `/power-load`
+5. You're live. 18 agents at your command.
 
 <p align="center">
-  <a href="https://github.com/MEHDIGAMER/power-range-elite"><strong>Get Power-Range Elite — $30</strong></a>
+  <a href="https://daddyblaxing.gumroad.com/l/power-range-elite"><img src="https://img.shields.io/badge/Buy_Now-$30_on_Gumroad-ff90e8?style=for-the-badge&logo=gumroad&logoColor=white" alt="Buy on Gumroad"/></a>
 </p>
+
+> **Note:** This GitHub repo is the product page. The actual command files, agent definitions, and installers are delivered after purchase. This protects both you (verified files, no tampering) and the product (no unauthorized redistribution).
 
 ---
 
 ## Security
 
-This repo is hardened against supply chain attacks:
+Your purchase includes SHA-256 checksums for every file. After install, run `bash verify.sh` to confirm nothing was tampered with.
 
-- **Branch protection** — No direct pushes, PRs require review
-- **CODEOWNERS** — Every file change requires owner approval
-- **GitHub Actions CI** — Auto-scans every PR for malicious content, secrets, prompt injection
-- **SHA-256 checksums** — Verify file integrity after install with `bash verify.sh`
-- **Force push blocked** — History cannot be rewritten
 - **Install scripts are `cp` only** — No network calls, no eval, no privilege escalation
+- **No telemetry** — Nothing phones home, nothing tracks you
+- **Files stay local** — Everything installs to `~/.claude/` on your machine
+- **SHA-256 verification** — Every file has a checksum you can verify
 
 Full details in [SECURITY.md](SECURITY.md).
 
