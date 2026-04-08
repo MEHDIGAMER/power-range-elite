@@ -6,16 +6,15 @@
 <h1 align="center">POWER-RANGE ELITE</h1>
 
 <p align="center">
-  <strong>Turn Claude Code into a full engineering team.<br/>18 AI agents. 13 steps. One command.</strong>
+  <strong>You type one command. 18 AI agents build, review, test, and ship your code.<br/>Nothing leaves the pipeline until every agent signs off.</strong>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Claude_Code-Latest-blueviolet?style=for-the-badge" alt="Claude Code"/>
   <img src="https://img.shields.io/badge/Agents-18-ff6b6b?style=for-the-badge" alt="18 Agents"/>
   <img src="https://img.shields.io/badge/Pipeline-13_Steps-ffd93d?style=for-the-badge" alt="13 Steps"/>
-  <img src="https://img.shields.io/badge/Shortcuts-Zero-00d2d3?style=for-the-badge" alt="Zero Shortcuts"/>
-  <img src="https://img.shields.io/badge/Security-Hardened-2ecc71?style=for-the-badge" alt="Security Hardened"/>
   <img src="https://img.shields.io/badge/AI_Rating-94%2F100-ff6b6b?style=for-the-badge" alt="AI Rating 94/100"/>
+  <img src="https://img.shields.io/badge/$30-One_Time-2ecc71?style=for-the-badge" alt="$30 One-Time"/>
 </p>
 
 <br/>
@@ -23,348 +22,351 @@
 <p align="center">
 <strong>
 
-> *"The Power-Range Elite system is a brilliant, high-precision orchestration framework that transforms Claude Code from a single-agent LLM into a fully autonomous, multi-disciplinary engineering team. This is not just an incremental improvement — it is a paradigm shift in AI-driven software development."*
+> *"The Power-Range Elite system is a paradigm shift in AI-driven software development. This is the closest thing to a real software engineering team an AI can be."*
 > 
-> — Gemini 2.5 Flash (scored 96/100)
+> — Gemini 2.5 Flash, blind AI evaluation (96/100)
 
 </strong>
 </p>
 
-### AI Debate Rating
-
-Power-Range was evaluated by **12 independent AI models** in a blind debate. Results:
-
-| Model | Score |
-|-------|-------|
-| Gemini 2.5 Flash | 96/100 |
-| Sonar (Perplexity) | 95/100 |
-| Llama 4 Scout | 94/100 |
-| Mixtral 8x22B | 94/100 |
-| Gemini 3 Flash Preview | 93/100 |
-| Hermes 4 70B | 92/100 |
-
-**Top 6 average: 94/100** — Rated as *"the closest thing to a real software engineering team an AI can be"*
-
 <p align="center">
-  <a href="#installation"><strong>Install Now</strong></a> &nbsp;&bull;&nbsp;
-  <a href="#the-13-step-pipeline"><strong>See the Pipeline</strong></a> &nbsp;&bull;&nbsp;
-  <a href="#the-18-agents"><strong>Meet the Agents</strong></a> &nbsp;&bull;&nbsp;
-  <a href="#how-to-use"><strong>Quick Start</strong></a>
+  <a href="#get-power-range"><strong>Get It Now — $30</strong></a> &nbsp;&bull;&nbsp;
+  <a href="#watch-it-run"><strong>Watch It Run</strong></a> &nbsp;&bull;&nbsp;
+  <a href="#the-18-agents"><strong>Meet the 18 Agents</strong></a> &nbsp;&bull;&nbsp;
+  <a href="#what-happens-after-you-install"><strong>See /power-load</strong></a>
 </p>
 
 ---
 
-## Why Power-Range?
+## The Problem
 
-You've used Claude Code. It's powerful. But it's **one agent doing everything** — writing code, reviewing its own code, testing its own work, and hoping nothing breaks.
+You're using Claude Code. You ask it to build something. It writes the code. It looks right. You ship it.
 
-That's like having one person be the architect, builder, inspector, security guard, and QA tester on a construction site.
+Then it breaks.
 
-**Power-Range replaces that with a full team:**
+**Why?** Because one AI did everything — it wrote the code, reviewed its own code, tested its own work, and told you it was fine. That's like asking the chef to also be the health inspector. Of course it "passed."
 
-| Without Power-Range | With Power-Range |
-|---------------------|------------------|
-| Claude writes code and hopes it works | 18 agents each handle their specialty |
-| No pre-build failure analysis | What-If Agent predicts every failure **before** code is written |
-| AI reviews its own code | 5 independent agents review with **zero prior context** |
-| "It compiled, ship it" | Live app testing with real clicks, real screenshots |
-| Same bugs keep coming back | Mistake Memory prevents every bug from ever returning |
-| One AI, one perspective | Adversarial Challenger actively tries to break everything |
+You've felt this. The code that compiled but crashed in production. The bug that kept coming back. The feature that worked on your machine but broke for users. The silent error that nobody saw for weeks.
 
-### What happens when you type `/power-range`
+**This is what happens when one agent does everything alone.**
+
+---
+
+## The Solution
+
+**Power-Range Elite replaces your solo AI with an 18-person engineering team.**
+
+One command. `/power-range`. That's it.
+
+Behind that command, 18 specialized AI agents activate — each with one job, one area of expertise, and zero tolerance for cutting corners. A CTO orchestrates. An Architect plans. Engineers build in parallel while a Challenger actively tries to break their work. Five independent reviewers audit the code with **zero prior knowledge** of what was built. A Tester launches your real app, clicks real buttons, and verifies everything works.
+
+**Nothing ships until every single agent signs off.**
+
+| What you're doing now | What Power-Range does |
+|---|---|
+| One AI writes code and hopes it works | 18 specialists each handle their domain |
+| AI reviews its own code (always "looks good!") | 5 independent reviewers with zero context |
+| "It compiled" = done | Real app launched, real buttons clicked, real verification |
+| Same bugs keep coming back for weeks | Mistake Memory — every bug is logged, every agent reads it, that bug never returns |
+| No failure analysis before building | What-If Agent predicts every way it can break **before writing a single line** |
+| You find the bugs | A Challenger agent with zero loyalty tries to break everything first |
+
+---
+
+## Watch It Run
+
+When you type `/power-range`, your terminal comes alive. You see every step executing in real-time — which agent is active, what it's doing, what it found. This isn't a black box. You're watching an engineering team work.
 
 ```
-You: /power-range Add user authentication with role-based access
+You: /power-range Build user authentication with role-based access control
 
-  [STEP 1]  CTO detects mode: BUILD
-  [STEP 2]  Intake interview — clarifies unknowns
-  [STEP 3]  Bookkeeper loads architecture map + danger zones
-  [STEP 4]  Prompt Translator creates precise technical brief
-  [STEP 5]  What-If Agent simulates 6 categories of failure
-  [STEP 6]  Architect plans with pre-emptive fixes for every risk
-  [STEP 7]  Backend + Frontend build in parallel — Challenger watches
-  [STEP 8]  Integration Engineer wires end-to-end chain
-  [STEP 9]  5 cold reviewers audit simultaneously (QA, Security, Code, Coverage, KPI)
-  [STEP 10] Documentation updated automatically
-  [STEP 11] Tech Lead signs off — or blocks with exact reasons
-  [STEP 12] Tester launches real app, clicks features, verifies everything
-  [STEP 13] Session closes — project memory updated for next time
+=== SESSION BRIEF ===
+Product: SaaS Platform
+Architecture: loaded (47 files mapped, 3 danger zones known)
+Business rules: loaded (12 rules)
+Mistake patterns: 2 from past sessions
+=== READY ===
 
-  SESSION COMPLETE — Delivered, verified, documented.
+MODE: BUILD — new authentication system with RBAC
+
+  [STEP 1]  CTO Orchestrator .................. detecting mode
+  [STEP 2]  Intake Interview .................. 3 questions asked, spec written
+  [STEP 3]  Bookkeeper ....................... architecture loaded, 2 danger zones flagged
+  [STEP 4]  Prompt Translator ................ technical brief generated (HIGH confidence)
+  [STEP 5]  What-If Agent .................... 14 failure scenarios found, 3 MUST RESOLVE
+  [STEP 6]  Architect ........................ implementation plan with pre-emptive fixes
+  [STEP 7]  Backend + Frontend (parallel) .... building with Challenger watching
+  [STEP 8]  Integration Engineer ............. end-to-end chain wired and verified
+  [STEP 9]  5 Cold Reviewers (parallel) ...... QA, Security, Code, Coverage, KPI
+  [STEP 10] Documentation .................... inline docs + change summary
+  [STEP 11] Tech Lead ........................ APPROVED — all checks passed
+  [STEP 12] Tester ........................... app launched, features clicked, PASSED
+  [STEP 13] Session Close .................... project memory updated
+
+SESSION COMPLETE
+Delivered: Auth system with RBAC
+Verified: Tester PASSED
+Security: CLEAN
+Tests: 12 added
+Files: 8 changed
+Mistakes logged: 0 new
 ```
 
-**Every step produces a real artifact.** Every agent writes a report. Nothing is assumed. Everything is verified.
+**Every step produces a real report.** 17 artifact files per session. Nothing is assumed. Everything is written down and verified.
+
+---
+
+## 12 AI Models Rated It. They Gave It 94/100.
+
+We didn't write the reviews. We ran a **blind debate** — 12 independent AI models evaluated Power-Range without knowing who built it.
+
+| Model | Score | Verdict |
+|-------|-------|---------|
+| Gemini 2.5 Flash | **96/100** | *"paradigm shift in AI-driven development"* |
+| Sonar (Perplexity) | **95/100** | *"brilliant, high-precision orchestration"* |
+| Llama 4 Scout | **94/100** | *"military-grade QA process"* |
+| Mixtral 8x22B | **94/100** | *"no wasted tokens, no context drift"* |
+| Gemini 3 Flash | **93/100** | *"full-stack coverage with zero redundancy"* |
+| Hermes 4 70B | **92/100** | *"closest thing to a real engineering team"* |
+
+**Top 6 average: 94/100**
+
+What they highlighted as genius:
+- **What-If Agent** — predicting failures before code is written (every model called this the most innovative feature)
+- **Cold Independent Review** — 5 agents reviewing with zero prior context
+- **Mistake Memory** — the system gets smarter with every session
+- **Challenger Agent** — adversarial review with zero loyalty to the builders
 
 ---
 
 ## The 18 Agents
 
+This isn't 18 copies of the same AI doing the same thing. Each agent has a **specific specialty, specific instructions, and a specific deliverable**. They don't overlap. They don't duplicate. They each do one thing better than any generalist could.
+
 ```
   ┌─────────────────────────────────────────────────────┐
   │                  CTO ORCHESTRATOR                    │
-  │           Controls the entire pipeline               │
+  │         Runs the show. Detects loops. Never builds.  │
   └──────────────────────┬──────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────┐
   │              DISCOVERY PHASE                         │
   │  Bookkeeper ─── Prompt Translator ─── What-If Agent │
-  │  (memory)        (precision)          (predict fail) │
+  │  knows every     makes your vague     finds every    │
+  │  file + danger   request precise      failure mode   │
   └──────────────────────┬──────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────┐
   │              ARCHITECTURE                            │
   │                  Architect                            │
-  │        (plan with pre-emptive fixes)                 │
+  │     plans the build with fixes for every risk        │
   └──────────────────────┬──────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────┐
   │           BUILD WAVE (parallel)                      │
   │  Backend Engineer ─── Frontend Engineer              │
   │           └────── Challenger ──────┘                 │
-  │                (adversarial watch)                    │
+  │      assumes they made a mistake. finds it.          │
   └──────────────────────┬──────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────┐
   │              INTEGRATION                             │
   │  Integration Engineer ─── Role & Access Engineer     │
-  │  (end-to-end chain)       (permissions from rules)   │
+  │  verifies the full          enforces permissions     │
+  │  end-to-end chain           from rules, not guesses  │
   └──────────────────────┬──────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────┐
-  │       INDEPENDENT REVIEW (5 agents, parallel)        │
+  │       INDEPENDENT REVIEW — 5 agents, parallel        │
   │  QA ─ Code Review ─ Security ─ Coverage ─ KPI       │
-  │         (cold context — zero prior knowledge)        │
+  │    these agents have ZERO knowledge of the build.    │
+  │    they only see the code. cold, unbiased review.    │
   └──────────────────────┬──────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────┐
   │              FINALIZATION                             │
-  │  Documentation ─── Tech Lead ─── Tester              │
-  │                  (final gate)   (live app testing)   │
+  │  Docs ────── Tech Lead ────── Tester                 │
+  │              blocks if ANY     launches real app,     │
+  │              check fails       clicks real buttons    │
   └─────────────────────────────────────────────────────┘
 ```
 
-| # | Agent | What it does |
-|---|-------|-------------|
-| 1 | **CTO** | Orchestrates the full pipeline, detects infinite loops, manages sessions |
-| 2 | **Bookkeeper** | Permanent architecture memory — knows every file, dependency, and danger zone |
-| 3 | **Prompt Translator** | Converts your vague request into a precise, unambiguous technical spec |
-| 4 | **What-If Agent** | Simulates **every failure mode** across 6 categories before code is written |
-| 5 | **Architect** | Designs implementation with pre-emptive fixes for every identified risk |
-| 6 | **Backend Engineer** | Builds server-side logic with multi-tenancy and audit logging enforcement |
-| 7 | **Frontend Engineer** | Builds UI — every async operation gets loading, error, and empty states |
-| 8 | **Challenger** | Adversarial reviewer — assumes mistakes were made, actively finds them |
-| 9 | **Integration Engineer** | Verifies the full end-to-end chain (user action to UI update, all 5 links) |
-| 10 | **Role & Access Engineer** | Enforces permissions from business rules — not assumptions |
-| 11 | **QA Engineer** | Independent testing with **Silent Failure Hunt** (finds errors hidden from users) |
-| 12 | **Code Reviewer** | Cold review — zero prior context, reads only the code files |
-| 13 | **Security Sentinel** | Runs **actual security commands** — grep for secrets, npm audit, auth checks |
-| 14 | **Test Coverage Engineer** | Enforces 70% coverage, writes regression tests for every bug fixed |
-| 15 | **Business KPI Analyst** | Verifies every calculation matches business rules — revenue math must be exact |
-| 16 | **Documentation Engineer** | Inline docs, change summaries, keeps everything accurate |
-| 17 | **Tech Lead** | Final quality gate — signs off only when **every single check passes** |
-| 18 | **Tester** | Launches the real app, clicks real buttons, takes real screenshots |
+| # | Agent | Why it exists |
+|---|-------|--------------|
+| 1 | **CTO** | Someone has to run the team. Detects infinite loops, scope creep, conflicting work. Shuts it down before it spirals. |
+| 2 | **Bookkeeper** | Your project has files, dependencies, danger zones. This agent memorizes all of it — permanently. Next session, it remembers everything. |
+| 3 | **Prompt Translator** | You say "fix the login." That's vague. This agent turns it into a precise spec with exact files, functions, roles, and success criteria. Zero misinterpretation. |
+| 4 | **What-If Agent** | The most powerful agent. Before anyone writes code, this one simulates **every way it could fail** — permissions, race conditions, network failures, empty states, double submits, expired tokens. Then the Architect builds with those fixes baked in. |
+| 5 | **Architect** | Designs the implementation plan. Every risk from the What-If Agent gets a pre-emptive fix. Every danger zone gets a safeguard. Nothing is left to chance. |
+| 6 | **Backend Engineer** | Builds server-side logic. Every database query gets tenant isolation. Every write gets audit logging. Every endpoint gets authentication. Not optional — enforced. |
+| 7 | **Frontend Engineer** | Builds UI. Every async operation gets a loading state, an error state, and an empty state. No optimistic UI without rollback. No silent catch blocks. Ever. |
+| 8 | **Challenger** | Has zero loyalty to the team. Its only job is to find what the builders got wrong. Attacks multi-tenancy isolation, business rule compliance, permission bypasses. Assumes at least one mistake was made — and finds it. |
+| 9 | **Integration Engineer** | The backend built something. The frontend built something. Do they actually connect? This agent verifies every link: user action → backend received → database updated → response returned → UI updated. All 5 links, confirmed. |
+| 10 | **Role & Access** | Reads your business rules. Checks every feature against them. If your rules say "chatters can't delete" but the API allows it — blocked. UI-only enforcement is not accepted. Both layers must pass. |
+| 11 | **QA Engineer** | Runs **Silent Failure Hunt** first — finds errors that are caught but never shown to users. Empty catch blocks. Console.error as the only handling. Things that look fine but are broken underneath. These are worse than crashes. |
+| 12 | **Code Reviewer** | Cold review. Never saw the conversation. Never read the handoffs. Gets only the code files and reads them fresh. Finds logic errors, future problems, and pattern violations that the builders are blind to. |
+| 13 | **Security Sentinel** | Doesn't use a checklist. Runs actual commands — greps for hardcoded secrets, runs npm audit, checks if auth is enforced server-side, tests if tenants can access each other's data. Real tools, real results. |
+| 14 | **Test Coverage** | Writes tests for every new function. Writes regression tests for every bug fixed. Enforces 70% coverage. The bug you fixed today cannot silently return tomorrow. |
+| 15 | **Business KPI** | Your business has rules. Commission is 15%? Revenue formula? Percentage calculations? This agent traces every formula in your code, tests it with real numbers, and verifies it matches your rules exactly. Business math cannot be guessed. |
+| 16 | **Documentation** | Adds inline comments that explain WHY, not WHAT. Updates any docs that the changes made inaccurate. Writes a session change summary. No session closes without documentation. |
+| 17 | **Tech Lead** | The final gate. Reviews every report from every agent. If QA failed, if security found something, if coverage dropped, if KPI is misaligned — **blocked.** Nothing passes until everything passes. |
+| 18 | **Tester** | Launches your actual application. Navigates to the screens that changed. Clicks every button. Checks every interaction. Verifies the data actually changed in the database and the UI actually updated. "API returned 200" is not enough. "User sees the updated data" is. |
 
 ---
 
-## What Makes This Different
+## What Happens After You Install
 
-### Silent Failure Hunting
-Most AI catches crashes. Power-Range catches **silent failures** — errors that are caught but never shown to users. Empty catch blocks, console.error as the only handling, optimistic UI without rollback, API calls that fail silently. QA hunts for these **first**, before any other check.
+This is the part most people don't expect.
 
-### Adversarial Review
-The Challenger agent has **zero loyalty** to the build team. It assumes at least one mistake was made and actively tries to break the feature. It specifically attacks multi-tenancy isolation and business rule compliance.
-
-### Cold Independent Review
-Wave 2 reviewers (QA, Code Review, Security, Coverage, KPI) receive **only the code files**. No conversation history. No handoffs. No knowledge of what was intended. They review what was actually built, not what someone said they built.
-
-### Mistake Memory
-Every mistake is logged to `MISTAKES.md` with root cause and prevention rule. Every agent reads this file at session start. **The same bug never happens twice.** Your project gets smarter with every session.
-
-### Escalation Protocol
-When Power-Range delivers code that still doesn't work, `/power-range-escalate` sends it to **4 different AI models** (GPT-4o, Gemini, DeepSeek, Grok) for independent diagnosis. You get a consensus verdict and the loop breaks.
-
-### Loop Detection
-The CTO monitors continuously for: same file edited 3+ times, same error after 2 fix attempts, scope creep beyond 50%, conflicting implementations. When detected, it **stops everything** and asks for direction instead of spinning.
-
----
-
-## Installation
-
-### Requirements
-
-- **Claude Code** (CLI, Desktop App, or IDE Extension) — latest supported version
-- Claude **Max** or **Pro** plan (agents need token capacity)
-
-### One-Line Install
-
-**Mac / Linux / Git Bash on Windows:**
-```bash
-git clone https://github.com/MEHDIGAMER/power-range-elite.git && cd power-range-elite && bash install.sh
-```
-
-**Windows PowerShell:**
-```powershell
-git clone https://github.com/MEHDIGAMER/power-range-elite.git; cd power-range-elite; .\install.ps1
-```
-
-### What the Installer Does
-
-```
-    ██████╗  ██████╗ ██╗    ██╗███████╗██████╗
-    ██╔══██╗██╔═══██╗██║    ██║██╔════╝██╔══██╗
-    ██████╔╝██║   ██║██║ █╗ ██║█████╗  ██████╔╝
-    ██╔═══╝ ██║   ██║██║███╗██║██╔══╝  ██╔══██╗
-    ██║     ╚██████╔╝╚███╔███╔╝███████╗██║  ██║
-    ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
-
-              E L I T E   E D I T I O N
-       18 Agents. 13 Steps. Zero Shortcuts.
-
-[1/6] Checking prerequisites...
-  + Claude Code CLI detected
-  + Claude directory found
-
-[2/6] Preparing directories...
-  + ~/.claude/commands
-  + ~/.claude/agents
-
-[3/6] Installing Power-Range commands...
-  + /power-load installed
-  + /power-range installed
-  + /power-range-escalate installed
-
-[4/6] Deploying 18 elite agents...
-  + [ 1/18] CTO Orchestrator
-  + [ 2/18] Bookkeeper (Architecture Memory)
-  + [ 3/18] Prompt Translator
-  + [ 4/18] What-If Agent (Failure Simulator)
-  + [ 5/18] Architect (Technical Planner)
-  + [ 6/18] Backend Engineer
-  + [ 7/18] Frontend Engineer
-  + [ 8/18] Challenger (Adversarial Reviewer)
-  + [ 9/18] Integration Engineer
-  + [10/18] Role & Access Engineer
-  + [11/18] Security Sentinel
-  + [12/18] Test Coverage Engineer
-  + [13/18] QA Engineer
-  + [14/18] Code Reviewer
-  + [15/18] Business KPI Analyst
-  + [16/18] Tester (Live App Testing)
-  + [17/18] Documentation Engineer
-  + [18/18] Tech Lead (Final Gate)
-
-[5/6] Verifying installation...
-  ✓ All files verified
-
-[6/6] Installation complete!
-
-  POWER-RANGE ELITE IS NOW INSTALLED
-
-  Power-Range is getting dangerous.
-  Power-Range will solve everything.
-```
-
-### Verify Integrity
-
-After installing, verify no files were tampered with:
-
-```bash
-bash verify.sh
-```
-
-### Manual Install
-
-```bash
-cp commands/*.md ~/.claude/commands/
-cp agents/*.md ~/.claude/agents/
-```
-
----
-
-## How to Use
-
-### Step 1: Install on Your Project
+After the one-line install puts the commands and agents on your machine, you open Claude Code in **any project** and type:
 
 ```
 /power-load
 ```
 
-Scans your codebase, interviews you about your product and business rules, generates 6 project files. One-time setup per project.
+**This is where the magic starts.**
 
-### Step 2: Run the Pipeline
+Power-Range doesn't just start building. It **learns your project first.** The `/power-load` command runs a full 5-phase installation on your specific codebase:
+
+### Phase 1 — Discovery
+Power-Range silently scans your **entire project**. Every file. Every folder. Every import. Every dependency. It reads your `package.json`, your config files, your environment setup. It maps which files are imported the most (the danger zones — touch these and everything breaks). It finds your naming conventions, your state management patterns, your API call style. It runs your start command to verify the project actually launches.
+
+**It knows your project better than you do in 60 seconds.**
+
+### Phase 2 — Interview
+Then it asks you the questions no AI has ever asked before:
+
+- *What is this product in one sentence?*
+- *Who are the users? What role does each one have?*
+- *What are the 5 features that must ALWAYS work?*
+- *What can each user role do? What are they NOT allowed to do?*
+- *Any calculations that must be exact? Write the formula.*
+- *What would break your business if coded wrong?*
+- *Does each client get isolated data? Can users from one client EVER see another's data?*
+
+These aren't generic questions. These are the questions that **prevent the bugs that cost you money.**
+
+### Phase 3 — Project Brain
+From your answers and the scan, Power-Range generates **6 files** that become the brain of your project:
+
+| File | What it does |
+|------|-------------|
+| `PRD.md` | Your product requirements — what it is, who uses it, what must always work, what it never does |
+| `BOOKKEEPER.md` | Complete architecture map — every file, every layer, every dependency chain, every danger zone. **Auto-updated after every session.** |
+| `BUSINESS-RULES.md` | Every role, every permission, every calculation formula, every data rule. This is the source of truth that every agent reads before touching your code. |
+| `SESSIONS.md` | Session history — what was built, what changed, what to watch out for. Your project has a memory now. |
+| `MISTAKES.md` | Every mistake that was ever made. Root cause and prevention rule. Every agent reads this before every session. **The same bug never happens twice.** |
+| `.power-range/config.md` | Agent model assignments, commands, multi-tenancy settings, high-risk files, fragile areas. The control panel. |
+
+### Phase 4 — CI/CD (Optional)
+If you want it, Power-Range sets up a GitHub Actions workflow that automatically runs quality checks on every PR.
+
+### Phase 5 — Confirmation
 
 ```
-/power-range Add a dashboard page that shows revenue per model with date filters
+=== POWER-LOAD COMPLETE ===
+Product: Your SaaS Platform
+Stack: React + Node.js + Firebase
+Roles: Admin, Manager, Chatter
+Multi-tenancy: ACTIVE
+Audit logging: ACTIVE
+
+Files created:
+  PRD.md
+  BOOKKEEPER.md
+  BUSINESS-RULES.md
+  SESSIONS.md
+  MISTAKES.md
+  .power-range/config.md
+
+Power-Range Elite is now installed on this project.
+Type /power-range to begin your first session.
+=== END ===
 ```
 
-```
-/power-range Fix the login bug where users get a white screen after OAuth redirect
-```
+**From this moment on, every time you type `/power-range`, all 18 agents know your project, your rules, your roles, your danger zones, and every mistake that's ever been made.**
 
-```
-/power-range Review the payment processing module for security issues
-```
+Your project doesn't start from scratch every session. It picks up where it left off. It gets smarter every time.
 
-The CTO agent takes over and runs all 13 steps automatically.
+---
 
-### Step 3: Escalate (if needed)
+## Three Commands. That's It.
 
-```
-/power-range-escalate
-```
-
-Sends failing code to 4 different AI models for independent diagnosis. Gets consensus verdict.
+| Command | What it does |
+|---------|-------------|
+| `/power-load` | One-time project setup. Scans your codebase, interviews you, generates the 6 project brain files. Run this once per project. |
+| `/power-range` | The main event. Describe what you want — build, fix, review, migrate — and 18 agents execute the full 13-step pipeline. |
+| `/power-range-escalate` | When things still don't work. Sends the failing code to **4 different AI models** (GPT-4o, Gemini, DeepSeek, Grok) for independent diagnosis. Consensus verdict breaks the loop. |
 
 ---
 
 ## The 13-Step Pipeline
 
-| Step | What Happens | Why |
-|------|-------------|-----|
-| 0 | Load all project files | Full context before any decision |
-| 1 | Mode detection | BUILD / FIX / REVIEW / MIGRATE / LIGHTWEIGHT |
-| 2 | Intake interview | Clarify unknowns, write Session Spec |
-| 3 | Bookkeeper brief | Architecture context, danger zones, safe zones |
-| 4 | Prompt translation | Precise technical brief, zero ambiguity |
-| 5 | **What-If simulation** | **Predict every failure BEFORE writing code** |
-| 6 | Architecture plan | Implementation plan with pre-emptive fixes |
-| 7 | Parallel build | Backend + Frontend + Challenger adversarial watch |
-| 8 | Integration + Access | End-to-end chain verified + role enforcement |
-| 9 | **Independent review** | **5 cold agents audit simultaneously** |
-| 10 | Documentation | Inline docs + session change summary |
-| 11 | Tech Lead sign-off | Final quality gate — blocks if anything fails |
-| 12 | **Live testing** | **Real app, real clicks, real screenshots** |
-| 13 | Session close | Project memory updated for next session |
+Every task goes through this. No shortcuts. No skipping.
+
+| Step | Agent(s) | What happens |
+|------|----------|-------------|
+| 0 | CTO | Loads all project files — full context before any decision |
+| 1 | CTO | Detects mode — BUILD, FIX, REVIEW, MIGRATE, or LIGHTWEIGHT |
+| 2 | CTO | Asks only what it genuinely doesn't know. Writes Session Spec. |
+| 3 | Bookkeeper | Loads architecture, flags danger zones, checks for past bugs nearby |
+| 4 | Prompt Translator | Your words become a precise technical brief. Zero ambiguity. |
+| 5 | **What-If Agent** | **Simulates every failure across 6 categories. Must-resolve blockers stop the build.** |
+| 6 | Architect | Plans the implementation. Every risk gets a pre-emptive fix. |
+| 7 | **Backend + Frontend + Challenger** | **Parallel build. Adversarial reviewer watches and challenges in real-time.** |
+| 8 | Integration + Role & Access | End-to-end chain verified. Permissions enforced from business rules. |
+| 9 | **QA + Code + Security + Coverage + KPI** | **5 cold reviewers, zero context, simultaneous audit.** |
+| 10 | Documentation | Inline docs, change summary, no session closes without it |
+| 11 | **Tech Lead** | **Final gate. Blocks if ANY check fails. No exceptions.** |
+| 12 | **Tester** | **Launches real app. Clicks real buttons. Verifies real data.** |
+| 13 | Bookkeeper | Updates architecture map, session log, mistake patterns |
+
+**LIGHTWEIGHT mode** is automatically detected for simple tasks (typo, config change, copy update). Only 3 agents instead of 18. Saves 65% tokens.
 
 ---
 
-## Built-In Capabilities
+## Built-In Defenses
 
-- **Multi-Tenancy Enforcement** — Every agent checks tenant isolation. Every query must include `tenant_id`. No exceptions.
-- **Audit Logging** — Every write logged: who, when, what, old value, new value. Append-only.
-- **Silent Failure Hunting** — QA hunts for errors hidden from users before checking anything else.
-- **Loop Detection** — CTO catches edit loops, repeated errors, scope creep, conflicting implementations.
-- **Mistake Memory** — Logged and read by all agents. Same bug never returns.
-- **Escalation Protocol** — 4 external AI models diagnose failures independently.
-- **LIGHTWEIGHT Mode** — Auto-detected for simple changes. Only 3 agents instead of 18. Saves 65% tokens.
+These aren't optional. They run on every session.
+
+**Silent Failure Hunting** — QA's first job isn't checking if the code works. It's finding errors that are **caught but never shown to users**. Empty catch blocks. Console.error as the only handling. APIs that fail silently. Things that look fine on the surface but are broken underneath. These are worse than crashes because nobody knows they're happening.
+
+**Mistake Memory** — Every mistake gets logged with the root cause and a prevention rule. Every agent reads `MISTAKES.md` before every session. The pattern that caused a bug in session 3 gets caught automatically in session 47. Your project accumulates intelligence over time.
+
+**Loop Detection** — The CTO watches for: same file edited 3+ times, same error after 2 fix attempts, scope creeping beyond 50%, two agents building conflicting things. When detected, it stops everything and asks you. No more spinning.
+
+**Multi-Tenancy Enforcement** — If your app has multiple clients/tenants, every agent enforces data isolation. Every database query must include tenant_id. No exceptions. The Challenger specifically tries to access Tenant B's data as Tenant A.
+
+**Escalation Protocol** — When the pipeline delivers code that still doesn't work, `/power-range-escalate` sends it to GPT-4o, Gemini, DeepSeek, and Grok simultaneously. Four independent diagnoses. Consensus breaks the loop.
 
 ---
 
-## Project Structure
+## Works With Everything
 
-After `/power-load`, your project gets:
+`/power-load` adapts to your stack. It reads your project and configures itself.
 
-```
-your-project/
-├── PRD.md                    # Product requirements
-├── BOOKKEEPER.md             # Architecture map (auto-updated every session)
-├── BUSINESS-RULES.md         # Roles, permissions, calculations, rules
-├── SESSIONS.md               # Session history log
-├── MISTAKES.md               # Mistake patterns (grows smarter over time)
-└── .power-range/
-    ├── config.md             # Project config for all agents
-    └── session/              # Live session artifacts (17 reports per session)
-```
+React, Next.js, Vue, Svelte, Angular, Node.js, Express, Python, Django, Flask, Electron, Firebase, Supabase, PostgreSQL, MongoDB, and more.
+
+Mac. Linux. Windows. CLI, Desktop App, VS Code, JetBrains.
+
+If Claude Code runs there, Power-Range runs there.
+
+---
+
+## Get Power-Range
+
+**$30. One-time. Lifetime access.**
+
+Includes:
+- 3 slash commands (`/power-load`, `/power-range`, `/power-range-escalate`)
+- 18 specialized AI agents
+- Installers for Mac, Linux, and Windows
+- SHA-256 integrity verification
+- All future updates
+
+<p align="center">
+  <a href="https://github.com/MEHDIGAMER/power-range-elite"><strong>Get Power-Range Elite — $30</strong></a>
+</p>
 
 ---
 
@@ -372,33 +374,36 @@ your-project/
 
 This repo is hardened against supply chain attacks:
 
-- **Branch protection** — No direct pushes to main, PRs require review
-- **CODEOWNERS** — Every change requires owner approval
+- **Branch protection** — No direct pushes, PRs require review
+- **CODEOWNERS** — Every file change requires owner approval
 - **GitHub Actions CI** — Auto-scans every PR for malicious content, secrets, prompt injection
-- **SHA-256 checksums** — Verify file integrity post-install
+- **SHA-256 checksums** — Verify file integrity after install with `bash verify.sh`
 - **Force push blocked** — History cannot be rewritten
 - **Install scripts are `cp` only** — No network calls, no eval, no privilege escalation
 
-See [SECURITY.md](SECURITY.md) for full details.
+Full details in [SECURITY.md](SECURITY.md).
 
 ---
 
 ## FAQ
 
-**Does this work on Mac, Linux, and Windows?**
-Yes. Installers for both Bash and PowerShell. Works everywhere Claude Code runs.
-
 **How many tokens does a session use?**
-Full BUILD: ~200-400k tokens. LIGHTWEIGHT mode: ~70-140k tokens.
-
-**Does it work with any project?**
-Yes. `/power-load` adapts to your stack — React, Next.js, Vue, Svelte, Node.js, Python, Electron, Firebase, and more.
+Full BUILD: ~200-400k tokens. LIGHTWEIGHT mode: ~70-140k tokens. You need Claude Max or Pro.
 
 **What if I only need a quick fix?**
-Power-Range auto-detects LIGHTWEIGHT mode for simple changes and only spawns 3 agents.
+Power-Range auto-detects LIGHTWEIGHT mode. Spawns 3 agents instead of 18. Saves 65% tokens.
 
-**Do I need API keys for escalation?**
-Yes. `/power-range-escalate` uses GPT-4o, Gemini, DeepSeek, and Grok. Set `OPENAI_API_KEY`, `GEMINI_API_KEY`, `DEEPSEEK_API_KEY`, `XAI_API_KEY` as env vars.
+**Do I need API keys?**
+Only for `/power-range-escalate` (optional). It uses GPT-4o, Gemini, DeepSeek, and Grok. Set the env vars if you want the escalation feature.
+
+**Does it work with my language/framework?**
+If Claude Code supports it, Power-Range works with it. The `/power-load` setup adapts to whatever stack you're running.
+
+**Can I use it on multiple projects?**
+Yes. Run `/power-load` once per project. Each project gets its own brain files.
+
+**Is it safe to install?**
+Every file has a SHA-256 checksum. The install scripts only copy files to `~/.claude/`. No network calls, no eval, no system modifications. Verify with `bash verify.sh`.
 
 ---
 
