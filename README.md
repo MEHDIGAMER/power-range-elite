@@ -13,6 +13,7 @@
   <img src="https://img.shields.io/badge/Claude_Code-Latest-blueviolet?style=for-the-badge" alt="Claude Code"/>
   <img src="https://img.shields.io/badge/Agents-18-ff6b6b?style=for-the-badge" alt="18 Agents"/>
   <img src="https://img.shields.io/badge/Pipeline-13_Steps-ffd93d?style=for-the-badge" alt="13 Steps"/>
+  <img src="https://img.shields.io/badge/NEW-Codebase_Intelligence-51cf66?style=for-the-badge" alt="Codebase Intelligence"/>
   <img src="https://img.shields.io/badge/AI_Rating-94%2F100-ff6b6b?style=for-the-badge" alt="AI Rating 94/100"/>
   <img src="https://img.shields.io/badge/$30-One_Time-2ecc71?style=for-the-badge" alt="$30 One-Time"/>
 </p>
@@ -85,6 +86,7 @@ You: /power-range Build user authentication with role-based access control
 Product: SaaS Platform
 Architecture: loaded (47 files mapped, 3 danger zones known)
 Business rules: loaded (12 rules)
+Codebase map: LOADED - 142 nodes, 4 critical, 2 red zone
 Mistake patterns: 2 from past sessions
 === READY ===
 
@@ -110,6 +112,7 @@ Verified: Tester PASSED
 Security: CLEAN
 Tests: 12 added
 Files: 8 changed
+Codebase map: UPDATED - 12 nodes rescored
 Mistakes logged: 0 new
 ```
 
@@ -248,7 +251,7 @@ Then it asks you the questions no AI has ever asked before:
 These aren't generic questions. These are the questions that **prevent the bugs that cost you money.**
 
 ### Phase 3 — Project Brain
-From your answers and the scan, Power-Range generates **6 files** that become the brain of your project:
+From your answers and the scan, Power-Range generates **7 files** that become the brain of your project:
 
 | File | What it does |
 |------|-------------|
@@ -258,6 +261,7 @@ From your answers and the scan, Power-Range generates **6 files** that become th
 | `SESSIONS.md` | Session history — what was built, what changed, what to watch out for. Your project has a memory now. |
 | `MISTAKES.md` | Every mistake that was ever made. Root cause and prevention rule. Every agent reads this before every session. **The same bug never happens twice.** |
 | `.power-range/config.md` | Agent model assignments, commands, multi-tenancy settings, high-risk files, fragile areas. The control panel. |
+| `.power-mapout/graph.json` | **NEW.** Machine-queryable dependency graph. Every function mapped with blast radius, health zones, shared resources. |
 
 ### Phase 4 — CI/CD (Optional)
 If you want it, Power-Range sets up a GitHub Actions workflow that automatically runs quality checks on every PR.
@@ -291,12 +295,13 @@ Your project doesn't start from scratch every session. It picks up where it left
 
 ---
 
-## Three Commands. That's It.
+## Four Commands. That's It.
 
 | Command | What it does |
 |---------|-------------|
 | `/power-load` | One-time project setup. Scans your codebase, interviews you, generates the 6 project brain files. Run this once per project. |
 | `/power-range` | The main event. Describe what you want — build, fix, review, migrate — and 18 agents execute the full 13-step pipeline. |
+| `/power-mapout` | **NEW in v1.1.** Scans your codebase and builds a dependency graph with blast radius scores and health zones. Agents query the map instead of searching files. |
 | `/power-range-escalate` | When things still don't work. Sends the failing code to **4 different AI models** (GPT-4o, Gemini, DeepSeek, Grok) for independent diagnosis. Consensus verdict breaks the loop. |
 
 ---
@@ -323,6 +328,23 @@ Every task goes through this. No shortcuts. No skipping.
 | 13 | Bookkeeper | Updates architecture map, session log, mistake patterns |
 
 **LIGHTWEIGHT mode** is automatically detected for simple tasks (typo, config change, copy update). Only 3 agents instead of 18. Saves 65% tokens.
+
+---
+
+## NEW in v1.1: Codebase Intelligence Map
+
+When you run `/power-load`, it now scans your entire codebase and builds an **intelligence map** where every function is a node tracking: what it calls, what calls it, its blast radius, health zone, shared resources, and database paths.
+
+**Your agents stop searching. They query.**
+
+| Query | What you get |
+|-------|-------------|
+| `/power-mapout query suspects "error in auth"` | Ranked suspect list with blast radius + recency |
+| `/power-mapout query blast validateToken` | Everything that breaks if this function breaks |
+| `/power-mapout query fragile` | Top 20 most dangerous nodes in your codebase |
+| `/power-mapout query health` | Project health dashboard with zone distribution |
+
+The map auto-updates on every `/power-range` session close. Gets smarter every session.
 
 ---
 
@@ -361,7 +383,7 @@ If Claude Code runs there, Power-Range runs there.
 </p>
 
 **What you get:**
-- 3 slash commands (`/power-load`, `/power-range`, `/power-range-escalate`)
+- 4 slash commands (`/power-load`, `/power-range`, `/power-mapout`, `/power-range-escalate`)
 - 18 specialized AI agent definitions
 - One-line installers for Mac, Linux, and Windows
 - SHA-256 integrity verification
@@ -369,7 +391,7 @@ If Claude Code runs there, Power-Range runs there.
 
 **How to install:**
 
-1. **Download** the latest release: [**power-range-elite-v1.0.zip**](https://github.com/MEHDIGAMER/power-range-elite/releases/latest/download/power-range-elite-v1.0.zip)
+1. **Download** the latest release: [**power-range-elite-v1.1.zip**](https://github.com/MEHDIGAMER/power-range-elite/releases/latest/download/power-range-elite-v1.1.zip)
 2. **Unzip** the package
 3. **Run the installer:**
    - Mac / Linux / Git Bash: `bash install.sh`
@@ -378,7 +400,7 @@ If Claude Code runs there, Power-Range runs there.
 5. **Open Claude Code** in any project and type `/power-load` to set up, then `/power-range` to run
 
 <p align="center">
-  <a href="https://github.com/MEHDIGAMER/power-range-elite/releases/latest/download/power-range-elite-v1.0.zip"><img src="https://img.shields.io/badge/Download-v1.0-2ecc71?style=for-the-badge" alt="Download v1.0"/></a>
+  <a href="https://github.com/MEHDIGAMER/power-range-elite/releases/latest/download/power-range-elite-v1.1.zip"><img src="https://img.shields.io/badge/Download-v1.1-2ecc71?style=for-the-badge" alt="Download v1.0"/></a>
 </p>
 
 > **License key required.** The download is free — but the installer requires a valid license key to activate. Get your key by purchasing access from [@daddyblaxing](https://github.com/MEHDIGAMER) ($30, one-time, lifetime).
