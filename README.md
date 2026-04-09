@@ -333,18 +333,92 @@ Every task goes through this. No shortcuts. No skipping.
 
 ## NEW in v1.1: Codebase Intelligence Map
 
-When you run `/power-load`, it now scans your entire codebase and builds an **intelligence map** where every function is a node tracking: what it calls, what calls it, its blast radius, health zone, shared resources, and database paths.
+### The Problem It Solves
 
-**Your agents stop searching. They query.**
+When something breaks in a large codebase, your AI agents waste time. They grep through files. They guess at dependencies. They check 20 files when the bug is in 1. They don't know that changing `auth.js` breaks 12 other functions downstream.
 
-| Query | What you get |
-|-------|-------------|
-| `/power-mapout query suspects "error in auth"` | Ranked suspect list with blast radius + recency |
-| `/power-mapout query blast validateToken` | Everything that breaks if this function breaks |
-| `/power-mapout query fragile` | Top 20 most dangerous nodes in your codebase |
-| `/power-mapout query health` | Project health dashboard with zone distribution |
+**That guessing is over.**
 
-The map auto-updates on every `/power-range` session close. Gets smarter every session.
+### What /power-mapout Does
+
+`/power-mapout` scans your entire codebase and builds an **X-ray of how everything connects.** Every function becomes a node in a dependency graph that tracks:
+
+- **What it calls** and **what calls it** (full dependency chain)
+- **Blast radius** (0-10) — how many things break if this function breaks
+- **Health zone** (GREEN / YELLOW / ORANGE / RED) — based on test coverage, complexity, and how often it changes
+- **Database paths** it reads/writes (Firebase RTDB, Firestore, SQL)
+- **API endpoints** it handles or calls
+- **Environment variables** it depends on
+- **Electron IPC channels** it sends/receives on
+- **Shared resources** — connection pools, caches, global state that invisibly connect unrelated functions
+- **Circular dependencies** — auto-detected and flagged as high risk
+
+### How It Changes Everything
+
+**Before /power-mapout (v1.0):**
+
+```
+Error in auth.js
+  Agent greps for "auth"
+  Reads 15 files
+  Guesses which one is broken
+  Tries a fix on the wrong file
+  Repeats 3 more times
+  Eventually finds it
+  20 minutes wasted
+```
+
+**After /power-mapout (v1.1):**
+
+```
+Error in auth.js
+  Agent queries the map
+  "auth.js blast radius: 8.5, calls db.query + cache.get,
+   changed 2 hours ago, 3 functions depend on it"
+  Checks those 3 functions
+  Finds the bug, fixes it
+  2 minutes
+```
+
+
+### Every Agent Uses It Automatically
+
+You don't run `/power-mapout` manually. It's baked into the pipeline:
+
+| Pipeline Step | What the map gives the agent |
+|--------------|------------------------------|
+| **Step 0** (CTO) | Reports map status: total nodes, critical count, red zone count |
+| **Step 3** (Bookkeeper) | Adds blast radius + shared resources for files in scope |
+| **Step 5** (What-If) | Traces failure cascades from actual graph edges — no more guessing |
+| **Step 6** (Architect) | Requires rollback plans for any CRITICAL node (blast >= 8) |
+| **Step 9** (QA + Reviews) | Prioritizes testing RED zone nodes and high blast radius functions |
+| **Step 13** (Close) | Runs incremental update, reports health zone changes |
+
+### Standalone Queries
+
+When you need to investigate outside of a `/power-range` session:
+
+```
+/power-mapout query suspects "TypeError in auth.js"
+  Top 5 suspects ranked by blast radius + recency + health
+
+/power-mapout query blast validateToken
+  Shows every function that breaks if validateToken breaks
+
+/power-mapout query fragile
+  Top 20 most dangerous nodes in your codebase
+
+/power-mapout query health
+  Full project health dashboard with zone distribution
+```
+
+### It Never Touches Your Code
+
+`/power-mapout` is **read-only**. It reads your source files, reads git history, and writes only to its own `.power-mapout/` directory. Your code is never modified, moved, or deleted.
+
+### It Gets Smarter Every Session
+
+The map auto-updates incrementally on every `/power-range` session close. Only changed files are rescanned. Health zones shift as code improves or degrades. Over time, the map becomes an increasingly accurate model of your codebase.
 
 ---
 
