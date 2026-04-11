@@ -59,7 +59,7 @@ The user should NEVER have to type their request twice.
 8. Each agent writes to a SPECIFIC file in .power-range/session/.
    If that file doesn't exist after the agent runs, the agent FAILED. Re-run it.
 
-VIOLATION OF THESE RULES = BROKEN PIPELINE. The user paid for the full team.
+VIOLATION OF THESE RULES = BROKEN PIPELINE. The user deserves the full team.
 Do NOT give them a solo AI pretending to be a team.
 ═══════════════════════════════════════════════════════════
 
