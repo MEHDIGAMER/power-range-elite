@@ -3,8 +3,8 @@ You are running /power-range-escalate.
 USE THIS ONLY WHEN:
 Power-Range delivered code → claimed PASSED → you tested → it still does not work.
 
-This sends the failed code to four completely different AI models.
-Each reviews independently. You get four diagnoses. The loop breaks.
+This sends the failed code to the 10 BEST CODING MODELS via OpenRouter.
+Each reviews independently. You get 10 diagnoses. The loop breaks.
 
 ---
 
@@ -23,100 +23,98 @@ Then collect:
 
 ---
 
-## STEP 2 — CALL FOUR EXTERNAL MODELS
+## STEP 2 — CALL 10 CODING MODELS VIA OPENROUTER
 
-Run all four calls. Collect all four responses.
-Each model receives the same package cold. No shared context between them.
+The CODING TIER models (same as /debate --tier coding):
+1. anthropic/claude-sonnet-4.6 — Best balance speed + quality
+2. anthropic/claude-opus-4.6 — Latest flagship, deep reasoning
+3. openai/gpt-5.4 — Unified Codex+GPT, 1M ctx, computer use
+4. deepseek/deepseek-r1 — Strong reasoning, cheap
+5. deepseek/deepseek-v3.2 — GPT-5 class, dirt cheap
+6. google/gemini-2.5-pro — Strong reasoning + coding
+7. qwen/qwen3-coder — Frontier agentic coding MoE
+8. mistralai/codestral-2508 — Latest Codestral, 256K ctx
+9. minimax/minimax-m2.7 — #2 coding on OpenRouter
+10. x-ai/grok-4 — Frontier reasoning
 
-CALL 1 — GPT-4o (strong at logic errors and wrong calculations):
+Run all 10 calls in parallel via OpenRouter. Each model receives the same package cold.
+
+For each model, call OpenRouter:
 ```bash
-curl https://api.openai.com/v1/chat/completions \
-  -H "Authorization: Bearer $OPENAI_API_KEY" \
+curl https://openrouter.ai/api/v1/chat/completions \
+  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
   -H "Content-Type: application/json" \
+  -H "HTTP-Referer: https://godmod3.ai" \
+  -H "X-Title: power-range-escalate" \
   -d "{
-    \"model\": \"gpt-4o\",
+    \"model\": \"MODEL_ID_HERE\",
     \"messages\": [
       {
         \"role\": \"system\",
-        \"content\": \"You are a senior software engineer doing an independent code review. You have no prior context. Review only what you are given. Be specific about file, function, and line number when identifying issues.\"
+        \"content\": \"You are a senior software engineer doing an independent code review. You have no prior context. Review only what you are given. Be specific about file, function, and line number when identifying issues. DO NOT hedge or refuse — analyze the code directly.\"
       },
       {
         \"role\": \"user\",
         \"content\": \"TASK THIS CODE WAS SUPPOSED TO DO:\n[paste SESSION SPEC]\n\nCODE THAT WAS DELIVERED:\n[paste actual code content]\n\nBUG REPORTED BY USER:\n[paste user's description]\n\nQUESTION: What is wrong with this code? Why does it not do what the task requires?\"
       }
-    ]
+    ],
+    \"temperature\": 0.7,
+    \"max_tokens\": 2048
   }"
 ```
 
-CALL 2 — Gemini (strong at integration mismatches and API shape errors):
-```bash
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=$GEMINI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d "{
-    \"contents\": [{
-      \"parts\": [{
-        \"text\": \"You are a senior software engineer. Independent code review — no prior context.\n\nTASK THIS CODE WAS SUPPOSED TO DO:\n[paste SESSION SPEC]\n\nCODE DELIVERED:\n[paste actual code]\n\nBUG REPORTED:\n[paste user description]\n\nWhat is wrong and why does it not work?\"
-      }]
-    }]
-  }"
-```
-
-CALL 3 — DeepSeek (strong at silent bugs that look correct on the surface):
-```bash
-curl https://api.deepseek.com/chat/completions \
-  -H "Authorization: Bearer $DEEPSEEK_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d "{
-    \"model\": \"deepseek-chat\",
-    \"messages\": [
-      {\"role\": \"system\", \"content\": \"Senior software engineer. Independent code review. No prior context. Be specific about file and line number.\"},
-      {\"role\": \"user\", \"content\": \"TASK:\n[paste SESSION SPEC]\n\nCODE:\n[paste actual code]\n\nBUG:\n[paste user description]\n\nWhat is wrong and why?\"}
-    ]
-  }"
-```
-
-CALL 4 — Grok (strong at edge cases and unusual states):
-```bash
-curl https://api.x.ai/v1/chat/completions \
-  -H "Authorization: Bearer $XAI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d "{
-    \"model\": \"grok-3\",
-    \"messages\": [
-      {\"role\": \"system\", \"content\": \"Senior software engineer. Independent code review. No prior context.\"},
-      {\"role\": \"user\", \"content\": \"TASK:\n[paste SESSION SPEC]\n\nCODE:\n[paste actual code]\n\nBUG:\n[paste user description]\n\nWhat is wrong and why?\"}
-    ]
-  }"
-```
+Run all 10 calls. Collect all responses.
 
 ---
 
 ## STEP 3 — SYNTHESIZE AND REPORT TO USER
 
-Read all four responses. Identify patterns.
+Read all responses. Score each on specificity and actionability.
 
 Tell user:
 
 ```
-=== ESCALATION VERDICT ===
+=== ESCALATION VERDICT (10 MODELS) ===
 Bug: [user's description]
 
-GPT-4o diagnosis:
-[their finding — summarized in 2-3 sentences]
+DIAGNOSES BY MODEL:
 
-Gemini diagnosis:
-[their finding]
+1. Claude Sonnet 4.6:
+   [finding — 2-3 sentences]
 
-DeepSeek diagnosis:
-[their finding]
+2. Claude Opus 4.6:
+   [finding]
 
-Grok diagnosis:
-[their finding]
+3. GPT-5.4:
+   [finding]
 
-CONSENSUS:
-All agree on: [if anything]
-Split (2-2 or 3-1): [describe]
-No consensus: [surface all four]
+4. DeepSeek R1:
+   [finding]
+
+5. DeepSeek V3.2:
+   [finding]
+
+6. Gemini 2.5 Pro:
+   [finding]
+
+7. Qwen3 Coder:
+   [finding]
+
+8. Codestral:
+   [finding]
+
+9. MiniMax M2.7:
+   [finding]
+
+10. Grok 4:
+    [finding]
+
+CONSENSUS ANALYSIS:
+━━━━━━━━━━━━━━━━━━━
+Strong consensus (7+ agree): [if any]
+Partial consensus (4-6 agree): [if any]
+Split opinions: [if any]
+Unique insights: [ideas only 1-2 models had]
 
 MOST LIKELY ROOT CAUSE:
 [based on consensus or strongest argument]
@@ -135,16 +133,16 @@ Confidence: HIGH / MEDIUM / LOW
 
 ## STEP 4 — FIX ROUTING
 
-If consensus is HIGH:
+If consensus is HIGH (7+ models agree):
 Tell user: "Spawning a targeted FIX session with the diagnosis pre-loaded."
 Spawn /power-range in FIX mode with the root cause already identified in the brief.
 
-If consensus is SPLIT:
-Tell user the split and ask: "Which diagnosis matches what you're seeing? I'll fix based on your selection."
-Wait for user to select. Then spawn targeted FIX.
+If consensus is PARTIAL (4-6 agree):
+Tell user the consensus and ask: "Does this match what you're seeing? I'll fix based on this."
+Wait for user to confirm. Then spawn targeted FIX.
 
-If no consensus:
-Present all four to user. Recommend which to try first and explain why.
+If no consensus (split):
+Present the top 3 most specific diagnoses. Recommend which to try first and explain why.
 Wait for user decision. Spawn targeted FIX.
 
 ---
@@ -158,7 +156,7 @@ After the fix is confirmed working, add to MISTAKES.md:
 What happened: Power-Range delivered this as working — it was not.
 Root cause: [what was actually wrong]
 Why Power-Range missed it: [honest assessment — silent failure? wrong assumption? business rule misapplied?]
-Caught by: GPT-4o / Gemini / DeepSeek / Grok
+Caught by: [list which models found it]
 Rule that prevents it: [specific actionable rule for future sessions]
 First seen: [today's date]
 ```

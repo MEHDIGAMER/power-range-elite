@@ -1,0 +1,16 @@
+{
+  "openrouter_api_key": "REPLACE_WITH_YOUR_KEY_FROM_openrouter.ai/keys",
+  "debate_models": [
+    "anthropic/claude-sonnet-4",
+    "anthropic/claude-opus-4",
+    "openai/gpt-4.1",
+    "deepseek/deepseek-r1",
+    "deepseek/deepseek-chat",
+    "google/gemini-2.5-pro-preview-05-06",
+    "qwen/qwen3-235b-a22b",
+    "x-ai/grok-3-mini-beta",
+    "meta-llama/llama-4-maverick"
+  ],
+  "min_models_for_consensus": 3,
+  "auto_debate_threshold": 2
+}
