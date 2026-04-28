@@ -1,3 +1,36 @@
 .DS_Store
 Thumbs.db
 *.log
+
+# Runtime artifacts (never commit your real config — use config.example.json as template)
+config.json
+.env
+.env.*
+
+# Per-session output
+debates/
+session/
+shots/
+
+# Personal research / validation prompts
+research_*.txt
+research_*.md
+validation_*.txt
+debate_question.txt
+code_for_validation.txt
+*-validation.txt
+
+# Local backups
+*.bak
+*.bak-*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editors
+.vscode/
+.idea/
+*.swp
