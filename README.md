@@ -13,6 +13,7 @@
   <img src="https://img.shields.io/badge/pipeline-20_steps-blue?style=for-the-badge" alt="20 Steps">
   <img src="https://img.shields.io/badge/elite-10_AI_consultants-purple?style=for-the-badge" alt="10 AI Consultants">
   <img src="https://img.shields.io/badge/tester-autonomous-orange?style=for-the-badge" alt="Autonomous Tester">
+  <img src="https://img.shields.io/badge/red%20team-MITRE%20ATT%26CK-red?style=for-the-badge" alt="Red Team MITRE ATT&CK">
   <img src="https://img.shields.io/badge/price-FREE-green?style=for-the-badge" alt="Free">
   <img src="https://img.shields.io/badge/paywall-NONE-red?style=for-the-badge" alt="No Paywall">
 </p>
@@ -69,7 +70,7 @@ Step 20:   Session close (scorecard, MISTAKES.md, auto-CLAUDE.md update)
 | `/power-range-escalate` | Tier escalation when basic mode hits a wall |
 | `/power-load` | One-time project setup (PRD, rules, config) |
 | `/power-mapout` | Codebase intelligence mapper (dependency graph + blast radius) |
-| `/elite-power-security` | Security hardening skill — 7-layer fortress + 10-step pipeline (see below) |
+| `/elite-power-security` | Defense + offense — 7-layer fortress + 11-step pipeline including the **Verification Assassins** Red Team (see below) |
 
 ---
 
@@ -185,13 +186,15 @@ No more "okay you go test it now" handoffs. The pipeline tests itself.
 
 ---
 
-## Elite Power-Security (security hardening skill)
+## Elite Power-Security (defense + Red Team)
 
-A bundled defensive-security skill inspired by **Caelum Bank** from *The Blacklist* (S9E20). Make attacking your project so expensive and noisy that no rational attacker continues.
+A bundled security skill inspired by **Caelum Bank** from *The Blacklist* (S9E20). Make attacking your project so expensive and noisy that no rational attacker continues — then send in the Red Team to *prove* it.
 
 **Invoke:** `/elite-power-security` in any project.
 
-**What it does** — runs a 10-step pipeline that produces a `.security/` folder with everything tailored to your stack:
+**What it does** — runs an **11-step pipeline** that produces a `.security/` folder tailored to your stack:
+
+**Defensive half (Steps 1–10):**
 
 1. **Profile** — reads your stack, hosting, data model, API surface
 2. **Attack surface map** — names every realistic attacker and likely attack
@@ -203,6 +206,10 @@ A bundled defensive-security skill inspired by **Caelum Bank** from *The Blackli
 8. **Rotation plan** — secrets, instances, sessions, deps
 9. **Pen-test dry run** — `nuclei` + `nmap` + OWASP top-10
 10. **Continuous guard** — daily cron re-runs Step 9 from outside
+
+**Offensive half (Step 11):**
+
+11. **Verification Assassins (Red Team)** — target-agnostic adversarial simulation that proves the fortress works (see below)
 
 ### The 7-Layer Flying Fortress
 
@@ -228,6 +235,60 @@ If you only have one weekend, do these in order:
 6. **Telegram alerts** — 1h, makes the whole thing 24/7
 
 That's **~7 hours from "wide open" to Caelum Bank tier**. Everything else is incremental.
+
+### The Verification Assassins (Red Team module)
+
+> *Validated by 9/10 OpenRouter models in adversarial review. Avg credibility 8.1/10. GPT-4.1: "the most elite, concrete, and credible Red Team playbook I've seen."*
+
+Step 11 is not a pen-test. It's a **target-agnostic adversarial simulation** that hunts the way a motivated attacker hunts. Vague blueprint only — recons the rest. Chains business-logic flaws into kill paths. Emits findings engineers can patch *tonight*.
+
+**Framework spine: MITRE ATT&CK** — every action maps to a technique ID. Supplemented by PTES (engagement flow), OWASP WSTG (web/mobile depth), TIBER-EU (intel-led scenarios).
+
+**Target dispatcher** — auto-detects type and runs the right playbook:
+
+| Target | Sample elite techniques |
+|---|---|
+| **Web / SaaS** | GraphQL introspection abuse, JWT alg confusion, request smuggling, OAuth redirect hijack |
+| **API-only** | Schemathesis fuzzing, BOLA/BOPLA, HTTP/2 multiplexing rate-limit bypass, webhook SSRF chains |
+| **Mobile** | Frida runtime hooks, cert pinning bypass, deep-link fuzzing, SafetyNet attestation bypass |
+| **Electron** | ASAR extraction, nodeIntegration/contextIsolation bypass, DevTools port abuse, code-signing downgrade |
+| **VPS / cloud** | Multi-cloud IMDS abuse (AWS+Azure+GCP), Leaky Vessels (CVE-2024-21626), kubelet API, IAM escalation |
+| **Static site** | DNS/CNAME takeover, CDN cache poisoning, third-party JS supply chain, typosquat clones |
+
+**Plus modern 2026 cross-cutting surfaces:** SAML/SSO (XSW, assertion replay), AI/LLM (prompt injection, tool hijack, system-prompt extraction), browser extensions (Manifest V3, externally_connectable), supply chain attestation (SLSA, Sigstore, SBOM diff), client-side prototype pollution, WebSockets.
+
+**11-phase MITRE-mapped kill chain** — Reconnaissance → Initial Access → Execution → Privilege Escalation → Persistence → Defense Evasion → Credential Access → Discovery → Lateral Movement → Collection + Exfiltration → Impact (always dry-run).
+
+**The 2026 tool stack** (debate-validated, every tool named by 5+ models):
+
+`Caido` (modern proxy, replaces Burp) · `Nuclei v3 + AI templates` · `JA4+/JA4h` (TLS+HTTP fingerprint manipulation) · `GraphQL Voyager + InQL` · `kubehound` · `Frida` · `TruffleHog v3` · `Schemathesis` · `jwt_tool` · `MobSF`
+
+**Reporting standard — CVSS alone is dead.** Every finding ships with: MITRE technique ID, EPSS score, SSVC decision, business-impact USD estimate, repro steps with curl/PoC, blast radius, suggested fix code, **and a mandatory fix-unit-test** that closes the finding only when it passes.
+
+**Defense validation — the moment of truth.** After the Assassins finish, every fortress layer gets graded: did the Cloudflare WAF catch us? Did AbuseIPDB score us? Did the canary token alert? The fortress doesn't get full marks until every column is `✅ YES`.
+
+**Continuous mode:**
+
+- Nightly `0 2 * * *` UTC — asset-diff recon (changed routes / new commits / DNS diffs)
+- Weekly `0 3 * * 6` UTC — full kill chain on **staging only**
+- Circuit breaker on 3+ consecutive 5XX → pauses + pages founder
+- Founder can abort everything in 30s by writing `.security/redteam/STOP`
+
+**Mandatory legal boundaries** — before any active testing, the skill writes a clearance file covering residential proxy ToS, CFAA / NIS2 / Computer Misuse Act, cloud pen-test policies, GDPR for captured fingerprints, and WireGuard SSH-lockout fallbacks. The founder signs each line. **No active testing without sign-off.**
+
+**Output** — `.security/redteam/`:
+```
+00-rules-of-engagement.md  ← scope, time window, forbidden ops
+00b-legal-clearance.md     ← signed before active testing
+01-recon.md                ← what an attacker would discover
+02-attack-tree.md          ← per-target-type chains
+03-findings/               ← one MITRE-tagged file per finding
+04-kill-chain-narrative.md ← outside → crown jewels, the story
+05-defenses-validated.md   ← which fortress layers caught us
+06-recommendations.md      ← ranked patches (EPSS × business impact)
+```
+
+> **Elite vs basic — one sentence:** elite Red Teams chain business-logic flaws into kill paths across the supply chain; basic pen-tests check OWASP top-10 on the primary application.
 
 > Honest framing: "unhackable" doesn't exist. This skill drives **attacker cost-to-breach above attacker patience** — economically prohibitive, not bulletproof.
 
