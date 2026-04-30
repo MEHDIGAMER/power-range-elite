@@ -69,6 +69,7 @@ Step 20:   Session close (scorecard, MISTAKES.md, auto-CLAUDE.md update)
 | `/power-range-escalate` | Tier escalation when basic mode hits a wall |
 | `/power-load` | One-time project setup (PRD, rules, config) |
 | `/power-mapout` | Codebase intelligence mapper (dependency graph + blast radius) |
+| `/elite-power-security` | Security hardening skill — 7-layer fortress + 10-step pipeline (see below) |
 
 ---
 
@@ -99,9 +100,10 @@ The installer copies all slash commands, the autonomous tester skill, the auto-C
 mkdir -p ~/.claude/commands
 cp commands/*.md ~/.claude/commands/
 
-# Tester skill
-mkdir -p ~/.claude/skills/power-range-tester
+# Skills
+mkdir -p ~/.claude/skills/power-range-tester ~/.claude/skills/elite-power-security
 cp skills/power-range-tester/SKILL.md ~/.claude/skills/power-range-tester/
+cp skills/elite-power-security/SKILL.md ~/.claude/skills/elite-power-security/
 
 # Auto-CLAUDE.md hook (optional — see SECURITY.md before installing)
 mkdir -p ~/.claude/hooks
@@ -180,6 +182,54 @@ The tester drives your app end-to-end via Chrome DevTools Protocol — clicks ev
 - `NEEDS-USER` — destructive gates / charge flows / async jobs require human approval
 
 No more "okay you go test it now" handoffs. The pipeline tests itself.
+
+---
+
+## Elite Power-Security (security hardening skill)
+
+A bundled defensive-security skill inspired by **Caelum Bank** from *The Blacklist* (S9E20). Make attacking your project so expensive and noisy that no rational attacker continues.
+
+**Invoke:** `/elite-power-security` in any project.
+
+**What it does** — runs a 10-step pipeline that produces a `.security/` folder with everything tailored to your stack:
+
+1. **Profile** — reads your stack, hosting, data model, API surface
+2. **Attack surface map** — names every realistic attacker and likely attack
+3. **Threat triage** — drops noise, focuses on top 3-5 real risks
+4. **Fortress plan** — picks which of the 7 defense layers apply
+5. **Tripwire placement** — decoy routes, files, users, canary tokens
+6. **Exposure pipeline** — capture → score (AbuseIPDB / Spamhaus / Tor) → block → alert
+7. **Autonomy** — uptime + log shipping + Telegram on-call
+8. **Rotation plan** — secrets, instances, sessions, deps
+9. **Pen-test dry run** — `nuclei` + `nmap` + OWASP top-10
+10. **Continuous guard** — daily cron re-runs Step 9 from outside
+
+### The 7-Layer Flying Fortress
+
+| # | Layer | Real-world implementation |
+|---|---|---|
+| 1 | No fixed jurisdiction | Multi-provider VPS rotation, OR (serverless) accept platform = jurisdiction |
+| 2 | No GPS transponder | Cloudflare in front of every origin; real IP unreachable directly |
+| 3 | No flight plans | No public DNS A records to origin; CNAMEs through Cloudflare; privacy WHOIS |
+| 4 | ECC crypto on servers | Per-tenant data keys via HKDF from a master in Vault/KMS; in-memory decrypt only |
+| 5 | Number-only IDs | Pseudonymous tenant IDs in primary store; PII isolated in stricter store |
+| 6 | Verified clients only | mTLS service-to-service; WebAuthn hardware key for admin; no passwords for ops |
+| 7 | No chairman SPOF | Multi-region HA; break-glass in sealed envelope, not a single brain |
+
+### Implementation order (highest leverage first)
+
+If you only have one weekend, do these in order:
+
+1. **Cloudflare in front of every origin** — 1h, kills 90% of direct attacks (Layers 2+3)
+2. **Honeypot routes + IP capture** — 2h, every scanner trips immediately
+3. **WireGuard for SSH** *(VPS only)* — 1h, kills SSH bruteforce permanently
+4. **Canary tokens** — 30min, catches insider/leak
+5. **AbuseIPDB scoring + auto-block** — 2h, weaponizes intel
+6. **Telegram alerts** — 1h, makes the whole thing 24/7
+
+That's **~7 hours from "wide open" to Caelum Bank tier**. Everything else is incremental.
+
+> Honest framing: "unhackable" doesn't exist. This skill drives **attacker cost-to-breach above attacker patience** — economically prohibitive, not bulletproof.
 
 ---
 

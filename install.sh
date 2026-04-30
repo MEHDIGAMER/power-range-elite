@@ -7,6 +7,7 @@ set -e
 CLAUDE_DIR="$HOME/.claude/commands"
 HOOKS_DIR="$HOME/.claude/hooks"
 SKILLS_DIR="$HOME/.claude/skills/power-range-tester"
+SECURITY_SKILL_DIR="$HOME/.claude/skills/elite-power-security"
 RANGERS_DIR="$HOME/.power-rangers"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
@@ -28,7 +29,7 @@ echo "  E L I T E   v3.0"
 echo "  20-Step Pipeline. 10-Model Debate. Autonomous Tester. Zero Shortcuts."
 echo ""
 
-mkdir -p "$CLAUDE_DIR" "$HOOKS_DIR" "$SKILLS_DIR" "$RANGERS_DIR"
+mkdir -p "$CLAUDE_DIR" "$HOOKS_DIR" "$SKILLS_DIR" "$SECURITY_SKILL_DIR" "$RANGERS_DIR"
 
 # Slash commands
 echo "  Installing slash commands..."
@@ -43,11 +44,13 @@ echo "    ✓ /power-mapout         — codebase intelligence mapper"
 cp "$SCRIPT_DIR/commands/power-range-escalate.md" "$CLAUDE_DIR/power-range-escalate.md"
 echo "    ✓ /power-range-escalate — pipeline escalation"
 
-# Tester skill
+# Skills
 echo ""
-echo "  Installing tester skill..."
+echo "  Installing skills..."
 cp "$SCRIPT_DIR/skills/power-range-tester/SKILL.md" "$SKILLS_DIR/SKILL.md"
 echo "    ✓ power-range-tester    — autonomous Step 19 tester (drives app via CDP)"
+cp "$SCRIPT_DIR/skills/elite-power-security/SKILL.md" "$SECURITY_SKILL_DIR/SKILL.md"
+echo "    ✓ elite-power-security  — Caelum Bank–inspired security hardening"
 
 # Hook
 echo ""

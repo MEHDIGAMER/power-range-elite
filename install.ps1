@@ -3,18 +3,19 @@
 
 $ErrorActionPreference = "Stop"
 
-$ClaudeDir  = "$env:USERPROFILE\.claude\commands"
-$HooksDir   = "$env:USERPROFILE\.claude\hooks"
-$SkillsDir  = "$env:USERPROFILE\.claude\skills\power-range-tester"
-$RangersDir = "$env:USERPROFILE\.power-rangers"
-$ScriptDir  = Split-Path -Parent $MyInvocation.MyCommand.Path
+$ClaudeDir   = "$env:USERPROFILE\.claude\commands"
+$HooksDir    = "$env:USERPROFILE\.claude\hooks"
+$SkillsDir   = "$env:USERPROFILE\.claude\skills\power-range-tester"
+$SecSkillDir = "$env:USERPROFILE\.claude\skills\elite-power-security"
+$RangersDir  = "$env:USERPROFILE\.power-rangers"
+$ScriptDir   = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 Write-Host ""
 Write-Host "  POWER-RANGE ELITE  v3.0" -ForegroundColor Yellow
 Write-Host "  20-Step Pipeline. 10-Model Debate. Autonomous Tester." -ForegroundColor DarkGray
 Write-Host ""
 
-foreach ($d in @($ClaudeDir, $HooksDir, $SkillsDir, $RangersDir)) {
+foreach ($d in @($ClaudeDir, $HooksDir, $SkillsDir, $SecSkillDir, $RangersDir)) {
     if (-not (Test-Path $d)) { New-Item -ItemType Directory -Path $d -Force | Out-Null }
 }
 
@@ -31,11 +32,13 @@ Write-Host "    + /power-mapout         — codebase intelligence mapper" -Foreg
 Copy-Item "$ScriptDir\commands\power-range-escalate.md" "$ClaudeDir\power-range-escalate.md" -Force
 Write-Host "    + /power-range-escalate — pipeline escalation" -ForegroundColor Green
 
-# Tester skill
+# Skills
 Write-Host ""
-Write-Host "  Installing tester skill..." -ForegroundColor White
+Write-Host "  Installing skills..." -ForegroundColor White
 Copy-Item "$ScriptDir\skills\power-range-tester\SKILL.md" "$SkillsDir\SKILL.md" -Force
 Write-Host "    + power-range-tester    — autonomous Step 19 tester (drives app via CDP)" -ForegroundColor Green
+Copy-Item "$ScriptDir\skills\elite-power-security\SKILL.md" "$SecSkillDir\SKILL.md" -Force
+Write-Host "    + elite-power-security  — Caelum Bank–inspired security hardening" -ForegroundColor Green
 
 # Hook
 Write-Host ""
